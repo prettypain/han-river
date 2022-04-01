@@ -1,0 +1,49 @@
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+div.i {
+	display: none;
+}
+@font-face {
+	font-family : 'MapoFlowerIsland';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff')
+	format('woff');
+	font-weight : normal;
+	font-style : normal;
+}
+
+body{
+	background-size : 100%;
+	background-repeat : no-repeat;
+	background-size : cover;
+	height:100%;
+}
+
+.font-setting{
+	font-family : MapoFlowerIsland;
+	font-size : 14pt;
+}
+
+.color-set{
+	color : #EAEAEA
+}
+.button_set{
+	align-items: center;
+	display: inline-block;
+	border: 1px solid white;
+	color: white;
+	text-align: center;
+	background-color : rgba(0,0,0,0);
+	padding : 13px 50px 13px 50px;
+
+
+	border-top-left-radius : 5px;
+	border-bottom-left-radius : 5px;
+	border-top-right-radius : 5px;
+	border-bottom-right-radius : 5px;
+	margin-left : -4;
+	margin-right : -3;
+}
