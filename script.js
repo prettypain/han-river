@@ -1,8 +1,9 @@
+const api_key = config.apikey;
 $.ajax({
-	url : "https://api.hangang.msub.kr",
+	url : "https://api.winsub.kr/hangang/?key=" + api_key,
 	type : "GET"
 }).done(function(data) {
-	console.log(data);
+	// console.log(data);
 	let Temperature = data.temp;
 	let get_time = data.time;
 	let now_time = new Date();
@@ -14,6 +15,28 @@ $.ajax({
 	console.log("실패");
 	console.log(data);
 });
+
+
+    // 이전에 사용하던 api
+	// $.ajax({
+	// 	url : "https://api.hangang.msub.kr",
+	// 	type : "GET"
+	// }).done(function(data) {
+	// 	console.log(data);
+	// 	let Temperature = data.temp;
+	// 	let get_time = data.time;
+	// 	let now_time = new Date();
+	// 	let make_time = now_time.getFullYear()+"년 "+ (now_time.getMonth()+1) +"월 "+ now_time.getDate()+"일 " + get_time+"시";
+	// 	console.log(make_time);
+	// 	document.getElementById("w_temp").innerHTML = Temperature;
+	// 	document.getElementById("MSR_DATE").innerHTML = make_time;
+	// }).fail(function(data){
+	// 	console.log("실패");
+	// 	console.log(data);
+	// });
+
+
+
 
 
 $( document ).ready( function() {
