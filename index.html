@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html  lang="ko">
 <head>
+    <title>HanRiver</title>
 	<link rel="shortcut icon" type="image/x-icon" href="./hanRiver_image/icon_500x500.png">
 	<meta property="og:type"content="website" />
 	<meta property="og:title"content="한강수온" />
 	<mata property="og:image:url" content="./hanRiver_image/icon_500x500.png"/>
 	<meta property="og:url"content="https://han-river.netlify.app"/>
 	<meta property="og:description"content="api를 사용해서 한강수온을 표현" />
-	
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>HanRiver</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script><!--alert창 이쁘게 하는거 -->
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type ="text/javascript" src="apikey.js"></script>
     <script type="text/javascript" src="script.js"></script>
     
 	<link rel="stylesheet" href="style.css">
 </head>
-<body id="BODY" class="color-set" onload="ic();print_time()" style="margin : 0px; text-align : center;">
-<div class="i font-setting" style="margin-top : 5%" id="word">
+<body id="BODY" class="color-set" onload="ic();print_time()">
+<div class="i font-setting" id="word">
     <b style="font-size : 30pt" onclick="window.location.reload()">
         한강온도
     </b>
     <div id="MSR_DATE"></div>
     <br/><br/>
     <div>
-        <div stlye="font-weight : 700;" id="comment">
-            <!--여기 다가는 랜덤으로 글 작성함-->
-        </div>
+        <div stlye="font-weight : 700;" id="comment"><!--여기 다가는 랜덤으로 글 작성함--></div>
+        <div class="space"></div>
         <div style="padding : 5px 0px 5% 0px">
             이번년도 끝날때 까지 <span onload="print_time()" id="time_data"></span>초 남았습니다.
         </div>
+
+        <div class="space"></div><div class="space"></div>
         <b style="font-size : 30pt">
             <span id="w_temp"></span>°C
         </b>
+
+        <div class="space"></div><div class="space"></div>
         <br/><br/>
         <button class="button_set" onclick="copy()" style="cursor:pointer" id="copy">copy</button>
-        <script>
-            function copy() {
-                var data = document.getElementById("MSR_DATE");
-                var date = document.getElementById("w_temp");
-                var main = document.getElementById("temp");
-                main.innerHTML = data.firstChild.nodeValue+" 온도 "+date.firstChild.nodeValue+"°C";
-                console.log(data,date,data.firstChild.nodeValue+date.firstChild.nodeValue);
-                var range = document.createRange();
-                range.selectNode(main.childNodes[0]); //텍스트 정보를 Range 객체에 저장
-                var sel = window.getSelection();
-                sel.removeAllRanges(); //기존 선택정보 삭제
-                sel.addRange(range); //텍스트 정보 선택
-                document.execCommand("copy"); //복사
-                sel.removeRange(range); //선택 정보 삭제
-                main.innerHTML = "";
-            }
-        </script>
         <div style="margin-top : 13%;">
             <a target="blank" href="https://hangang.life/">
                 <span id="last_moment" style="color: white;">참고한 작품</span>

@@ -36,9 +36,41 @@ $.ajax({
 	// });
 
 
+function alert_box(txt, sym="", time=3000) {
+	const Toast = Swal.mixin({
+		toast: true,
+		position: 'center-center',
+		showConfirmButton: false,
+		timer: time,
+		timerProgressBar: true,
+		didOpen: (toast) => {
+			toast.addEventListener('mouseenter', Swal.stopTimer)
+			toast.addEventListener('mouseleave', Swal.resumeTimer)
+		}
+	})
 
+	Toast.fire({
+		icon: sym, // [success, error, warning, info, question]
+		title: txt
+	})
+}
 
+function copy() {
+	var data = document.getElementById("MSR_DATE");
+	var date = document.getElementById("w_temp");
+	var main = document.getElementById("temp");
+	main.innerHTML = data.firstChild.nodeValue+" 온도 "+date.firstChild.nodeValue+"°C";
+	var range = document.createRange();
+	range.selectNode(main.childNodes[0]); //텍스트 정보를 Range 객체에 저장
+	var sel = window.getSelection();
+	sel.removeAllRanges(); //기존 선택정보 삭제
+	sel.addRange(range); //텍스트 정보 선택
+	document.execCommand("copy"); //복사
+	sel.removeRange(range); //선택 정보 삭제
+	main.innerHTML = "";
 
+	alert_box("온도 복사 완료!", "success", 2000);
+}
 $( document ).ready( function() {
 	$( 'div.i' ).fadeIn( 1800 );
 } );

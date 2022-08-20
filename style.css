@@ -7,6 +7,7 @@ a:hover{
 div.i {
 	display: none;
 }
+
 @font-face {
 	font-family : 'MapoFlowerIsland';
 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff')
@@ -18,32 +19,98 @@ div.i {
 body{
 	background-size : 100%;
 	background-repeat : no-repeat;
-	background-size : cover;
+	background-size :cover;
 	height:100%;
+	overflow: hidden;
 }
 
+#word{
+	margin-top : 5%;
+}
+@media screen and (max-width: 500px){
+    #word{
+		margin-top: 20%;
+	}
+}
+
+html{
+	height: 100%;
+	margin : 0px;
+	text-align : center;
+}
 .font-setting{
 	font-family : MapoFlowerIsland;
 	font-size : 14pt;
+	font-weight: bold;
+}
+@media screen and (max-width: 500px){
+    .font-setting{
+		font-family : MapoFlowerIsland;
+		font-size : 14pt;
+		font-weight: bold;
+	}
+}
+
+@media screen and (max-width: 500px){
+    .space{
+		margin: 10%;
+	}
+}
+@media screen and (max-width: 500px){
+    #last_moment{
+		position: absolute;
+		bottom: 15%;
+		left: 50%;
+		transform: translate(-50%, 15%);
+	}
 }
 
 .color-set{
 	color : #EAEAEA
 }
 .button_set{
+	position: relative;
+	overflow: hidden;
 	align-items: center;
 	display: inline-block;
-	border: 1px solid white;
-	color: white;
 	text-align: center;
+
+
+	color: white;
 	background-color : rgba(0,0,0,0);
-	padding : 13px 50px 13px 50px;
+	border: 2px solid white;
 
 
-	border-top-left-radius : 5px;
-	border-bottom-left-radius : 5px;
-	border-top-right-radius : 5px;
-	border-bottom-right-radius : 5px;
+	border-radius : 5px;
 	margin-left : -4;
 	margin-right : -3;
+	padding : 13px 50px 13px 50px;
+
+	transition: all 0.5s;
+	font-size: 14pt;
+	font-weight: bold;
+}
+.button_set::before{
+	content: "";
+	background-color: #EAEAEA;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	transition: all 0.5s;
+	z-index: -1;
+}
+.button_set:hover::before{
+	content: "";
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0%;
+	left: 0;
+}
+.button_set:hover{
+	color: black;
+	border: 2px solid black;
 }
