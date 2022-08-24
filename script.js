@@ -71,9 +71,13 @@ function copy() {
 
 	alert_box("온도 복사 완료!", "success", 2000);
 }
-$( document ).ready( function() {
-	$( 'div.i' ).fadeIn( 1800 );
-} );
+
+$(window).on('load', function(){
+	$('#load').hide();
+	$( document ).ready( function() {
+		$( 'div.i' ).fadeIn( 1800 );
+	} );
+})
 /* pc 에 따라 모바일에 따라 구분지어 각 화면을 비춘다.
 var filter = "win16|win32|win64|mac|macintel";
 if ( navigator.platform )
