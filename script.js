@@ -94,8 +94,7 @@ var List = [
 	'what is in men? &nbsp what is not given men? &nbsp what men live by? ― tolstoy three questions', //톨스토이의 미하일이 배워야할 과제 3가지
 	"What does not destroy me, makes me stronger. ― Friedrich Nietzsche", //프리드리히 니체
 	"나를 죽이지 못하는 고통은, 나를 더 강하게 해줄 뿐이다. ― 프리드리히 니체", //우상의 황혼
-	"<a style='color:black; font-size:20pt' href='https://www.kookmin.ac.kr/comm/menu/user/d48d445aa00b36a21e59610221023b0d/content/index.do'>以校爲家 事必歸正</a>",
-
+	"<a style='font-size:20pt' href='https://www.kookmin.ac.kr/comm/menu/user/d48d445aa00b36a21e59610221023b0d/content/index.do'>以校爲家 事必歸正</a>", //국민대
 ]
 /* //이전 명언
 "노력은 자신을 배신하지 않지. 꿈을 배신하는 건 있지만.",
@@ -143,8 +142,8 @@ function print_time(){
 }
 
 $(window).on('load', function(){
-	$('#load').hide();
 	$( document ).ready( function() {
+		$('#load').fadeOut( 1000 );
 		$( 'div.i' ).fadeIn( 1000 );
 	} );
 })
