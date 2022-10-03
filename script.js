@@ -145,6 +145,6 @@ function print_time(){
 $(window).on('load', function(){
 	$('#load').hide();
 	$( document ).ready( function() {
-		$( 'div.i' ).fadeIn( 1800 );
+		$( 'div.i' ).fadeIn( 1000 );
 	} );
 })

@@ -142,15 +142,16 @@ html{
 	left: 0;
 	position: fixed;
 	display: block;
-	opacity: 0.8;
-	background: white;
+	opacity: 0.9;
+	background: #1a2027;
 	z-index: 99;
 	text-align: center;
 }
 
 #load > img {
-	position: absolute;
+	position:absolute;
 	top: 50%;
 	left: 50%;
+	transform: translate(-50%, -50%);
 	z-index: 100;
 }
