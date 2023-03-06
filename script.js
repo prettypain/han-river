@@ -1,7 +1,5 @@
-
-const api_key = config.apikey;
 $.ajax({
-	url : "https://api.winsub.kr/hangang/?key=" + api_key,
+	url : "https://api.winsub.kr/hangang/?key=" + config.apikey,
 	type : "GET"
 }).done(function(data) {
 	// console.log(data);
@@ -16,8 +14,6 @@ $.ajax({
 	console.log("실패");
 	console.log(data);
 });
-
-
     // 이전에 사용하던 api
 	// $.ajax({
 	// 	url : "https://api.hangang.msub.kr",
@@ -37,7 +33,7 @@ $.ajax({
 	// });
 
 
-function alert_box(txt, sym="", time=3000) {
+function alert_box(txt, sym="success", time=3000) {
 	const Toast = Swal.mixin({
 		toast: true,
 		position: 'center-center',
@@ -57,13 +53,13 @@ function alert_box(txt, sym="", time=3000) {
 }
 
 function copy() {
-	var data = document.getElementById("MSR_DATE");
-	var date = document.getElementById("w_temp");
-	var main = document.getElementById("temp");
-	main.innerHTML = data.firstChild.nodeValue+" 온도 "+date.firstChild.nodeValue+"°C";
-	var range = document.createRange();
+	let data = document.getElementById("MSR_DATE");
+	let date = document.getElementById("w_temp");
+	let main = document.getElementById("temp");
+	main.innerHTML = data.firstChild.nodeValue + " 온도 " + date.firstChild.nodeValue+"°C";
+	let range = document.createRange();
 	range.selectNode(main.childNodes[0]); //텍스트 정보를 Range 객체에 저장
-	var sel = window.getSelection();
+	let sel = window.getSelection();
 	sel.removeAllRanges(); //기존 선택정보 삭제
 	sel.addRange(range); //텍스트 정보 선택
 	document.execCommand("copy"); //복사
@@ -88,7 +84,7 @@ if ( navigator.platform )
 */
 
 //명언 배열
-var List = [
+let List = [
 	"The hatred of the two families could not stop their love. ― Romeo and Juliet", //로미오와 줄리엣
 	"you see clearly only with your heart. Nothing important can be seen with your eyes. ― The Little Prince", //어린 왕자
 	'what is in men? &nbsp what is not given men? &nbsp what men live by? ― tolstoy three questions', //톨스토이의 미하일이 배워야할 과제 3가지
@@ -103,10 +99,11 @@ var List = [
 	"문제는 문제로 삼지 않는 한 문제가 되지 않아",
 	"사회가 내게 가혹하니 나만이라도 나에게 관대해야겠다.",
 	"세계를 좁혀 간다는 건 틀림없이 어른에 가까워져 간다는 것이다. 수많은 선택지를 좁혀 가며,<br/> 가능성을 죽여 가며, 더욱 확실한 미래상을 만들어간다.",
-
 */
+
+
 //background img 위치 배열
-var arr = new Array();
+let arr = new Array();
 arr[0] = "./hanRiver_image/wallpaper_0.png";
 arr[1] = "./hanRiver_image/wallpaper_1.jpg";
 arr[2] = "./hanRiver_image/wallpaper_2.jpg";
@@ -115,17 +112,17 @@ arr[4] = "./hanRiver_image/wallpaper_4.jpg";
 arr[5] = "./hanRiver_image/wallpaper_5.jpg";
 
 
-function ic(){
-	var url = "url(" + arr[Math.floor(Math.random() * arr.length)] + ")";
+function ic(){ //랜덤으로 배경화면및 코멘트 설정
+	let url = "url(" + arr[Math.floor(Math.random() * arr.length)] + ")";
 	document.getElementById("BODY").style.backgroundImage = url;
 	if(url == "url(./hanRiver_image/wallpaper_4.jpg)" || url == "url(./hanRiver_image/wallpaper_5.jpg)"){
-		var temp = document.getElementById("word");
+		let temp = document.getElementById("word");
 		temp.style.color="black";
 		document.getElementById("last_moment").style.color="black";
 		document.getElementById("copy").style.color="black"
-		document.getElementById("copy").style.border="1px solid black";
+		document.getElementById("copy").style.border="2px solid black";
 	}
-	var new_comment = document.createElement("div");
+	let new_comment = document.createElement("div");
 	new_comment.innerHTML = '" ' + List[Math.floor(Math.random() * List.length)] + ' "';
 	document.getElementById("comment").appendChild(new_comment);
 }
@@ -136,7 +133,7 @@ function print_time(){
 	const data2 = new Date(data1.getFullYear()+1, 0, 0, 0, 0, 0);
 	const elapsedMSec = data2 - data1;
 	const elapsedSec = elapsedMSec / 1000;
-	var data = document.getElementById("time_data");
+	let data = document.getElementById("time_data");
 	data.innerHTML = parseInt(elapsedSec);
 	setTimeout("print_time()",1000);
 }
