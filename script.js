@@ -18,7 +18,7 @@ $.ajax({
 	let now_time = new Date();
 	let make_time = now_time.getFullYear()+"년 "+ (now_time.getMonth()+1) +"월 "+ now_time.getDate()+"일 " + get_time+"시";
 	console.log(make_time);
-	document.getElementById("w_temp").innerHTML = make_time;
+	document.getElementById("w_temp").innerHTML = d.temp;
 	document.getElementById("MSR_DATE").innerHTML = make_time;
 });
     // 이전에 사용하던 api
