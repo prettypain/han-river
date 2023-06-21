@@ -13,7 +13,7 @@ $.ajax({
 }).fail(function(data){
 	console.log("실패");
 	console.log(data);
-	let d = {"status":"success","temp":22.4,"time":"2023-06-21 00:13:09"};
+	let d = {"status":"success","temp":24.1,"time":"2023-06-21 00:13:09"};
 	let get_time = d.time;
 	let now_time = new Date();
 	let make_time = now_time.getFullYear()+"년 "+ (now_time.getMonth()+1) +"월 "+ now_time.getDate()+"일 " + now_time.toLocaleTimeString();
