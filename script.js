@@ -1,43 +1,17 @@
 $.ajax({
-	url : "https://api.winsub.kr/hangang/?key=" + config.apikey,
+	url : "https://api.hangang.life/",
 	type : "GET"
 }).done(function(data) {
-	// console.log(data);
-	let Temperature = data.temp;
-	let get_time = data.time;
-	let now_time = new Date();
-	let make_time = now_time.getFullYear()+"년 "+ (now_time.getMonth()+1) +"월 "+ now_time.getDate()+"일 " + get_time+"시";
-	console.log(make_time);
-	document.getElementById("w_temp").innerHTML = Temperature;
-	document.getElementById("MSR_DATE").innerHTML = make_time;
+	console.log("안양천의 정보 : ", data.DATAs.DATA.HANGANG.안양천);
+	data = data.DATAs.DATA.HANGANG.안양천;
+
+	let get_time = data.LAST_UPDATE; //temperature
+	document.getElementById("w_temp").innerHTML = data.TEMP; 
+	document.getElementById("MSR_DATE").innerHTML = get_time.slice(0,4) + "년 " + get_time.slice(5, 7) + "월 " + get_time.slice(8, 10) + "일 " + get_time.slice(11, 13) + "시";
 }).fail(function(data){
-	console.log("실패");
+	console.log("failed to get HANGANG info");
 	console.log(data);
-	let d = {"status":"success","temp":24.1,"time":"2023-06-21 00:13:09"};
-	let get_time = d.time;
-	let now_time = new Date();
-	let make_time = now_time.getFullYear()+"년 "+ (now_time.getMonth()+1) +"월 "+ now_time.getDate()+"일 " + now_time.toLocaleTimeString();
-	console.log(make_time);
-	document.getElementById("w_temp").innerHTML = d.temp;
-	document.getElementById("MSR_DATE").innerHTML = make_time;
 });
-    // 이전에 사용하던 api
-	// $.ajax({
-	// 	url : "https://api.hangang.msub.kr",
-	// 	type : "GET"
-	// }).done(function(data) {
-	// 	console.log(data);
-	// 	let Temperature = data.temp;
-	// 	let get_time = data.time;
-	// 	let now_time = new Date();
-	// 	let make_time = now_time.getFullYear()+"년 "+ (now_time.getMonth()+1) +"월 "+ now_time.getDate()+"일 " + get_time+"시";
-	// 	console.log(make_time);
-	// 	document.getElementById("w_temp").innerHTML = Temperature;
-	// 	document.getElementById("MSR_DATE").innerHTML = make_time;
-	// }).fail(function(data){
-	// 	console.log("실패");
-	// 	console.log(data);
-	// });
 
 
 function alert_box(txt, sym="success", time=3000) {
@@ -98,14 +72,15 @@ let List = [
 	"What does not destroy me, makes me stronger. ― Friedrich Nietzsche", //프리드리히 니체
 	"나를 죽이지 못하는 고통은, 나를 더 강하게 해줄 뿐이다. ― 프리드리히 니체", //우상의 황혼
 	"<a style='font-size:20pt' href='https://www.kookmin.ac.kr/comm/menu/user/d48d445aa00b36a21e59610221023b0d/content/index.do'>以校爲家 事必歸正</a>", //국민대
-]
-/* //이전 명언
-"노력은 자신을 배신하지 않지. 꿈을 배신하는 건 있지만.",
+	"노력은 자신을 배신하지 않지. 꿈을 배신하는 건 있지만.",
 	"씁쓸한 인생, 커피 정도는 달아도 괜찮겠지.",
 	"과거를 떠올리면 후회 때문에 죽고 싶고 미래를 생각하면 불안 때문에 우울하니까,<br/> 소거법으로 현재는 행복하다고 할 수 있지.",
 	"문제는 문제로 삼지 않는 한 문제가 되지 않아",
 	"사회가 내게 가혹하니 나만이라도 나에게 관대해야겠다.",
 	"세계를 좁혀 간다는 건 틀림없이 어른에 가까워져 간다는 것이다. 수많은 선택지를 좁혀 가며,<br/> 가능성을 죽여 가며, 더욱 확실한 미래상을 만들어간다.",
+]
+/* //이전 명언
+
 */
 
 
